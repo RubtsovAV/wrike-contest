@@ -1,5 +1,5 @@
 (function() {
-    const CONFIRM_CHANGE_INITIAL_STATUS_TEXT = 'You already have an inital status. Do you wanna change it?'
+    const CONFIRM_CHANGE_INITIAL_STATUS_TEXT = 'You already have another status tagged with "Inital status". Do you want to change it?'
 
     class StatusEditor {
         constructor(container) {
