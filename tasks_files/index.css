@@ -1,0 +1,754 @@
+/*! based on normalize.css v5.0.0 | MIT License | github.com/necolas */
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+/* Document
+   ========================================================================== */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+body {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+a {
+  -webkit-text-decoration-skip: objects;
+}
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+a:active,
+a:hover {
+  outline-width: 0;
+}
+/**
+ * Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+/**
+ * Prevent text blurriness in Firefox on macOS
+ * link: https://stackoverflow.com/a/44898465
+ */
+@supports (-moz-appearance: meterbar) and (background-blend-mode: difference, normal) {
+  body {
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+      (commented because of the excessive selector weight
+       while normalization is screened
+       todo: [crafting-normalize] uncomment when it's rolled)
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  /* 2 */
+}
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"],
+textarea,
+input[type="text"],
+input[type="password"] {
+  -webkit-appearance: none;
+  /* 2 */
+}
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: none;
+}
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+/**
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+  /* 2 */
+}
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+textarea {
+  overflow: auto;
+}
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: none;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: none;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+/**
+ * Fix opacity of a placeholder in Firefox
+ */
+input[type="text"]::-moz-placeholder,
+textarea::-moz-placeholder {
+  opacity: 1;
+}
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE, and Firefox.
+ */
+details,
+menu {
+  display: block;
+}
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+/*
+
+  BASE STYLES =========
+
+  Contains global base styles. Defines elements appearance
+  - Default styles via tags
+  - Custom styles via classes or attributes
+  - Custom WebKit scrollbars
+
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+mark {
+  color: inherit;
+  font-weight: 700;
+  background-color: transparent;
+}
+body {
+  font-family: "Open sans", "lucida grande", "Segoe UI", arial, verdana, tahoma, "Hiragino Kaku Gothic ProN", "Osaka", "Meiryo UI", "Yu Gothic UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.ui-kit-link {
+  text-decoration: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.ui-kit-link,
+.ui-kit-link:visited {
+  color: #4488ff;
+}
+.ui-kit-link:hover,
+.ui-kit-link:focus {
+  text-decoration: underline;
+}
+.ui-kit-list {
+  list-style-position: inside;
+}
+[hidden] {
+  display: none !important;
+}
+@supports (-webkit-appearance: none) {
+  /*
+    hack for webkit target
+    link: http://browserhacks.com/#hack-8a0d11a6b2e3d172711eed35cb7237b9
+    also targets edge but ::-webkit-scrollbar doesn't apply
+  */
+  body::-webkit-scrollbar,
+  body *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  body::-webkit-scrollbar-thumb,
+  body *::-webkit-scrollbar-thumb {
+    background-color: rgba(163, 172, 182, 0.5);
+    border: 0px solid transparent;
+    border-radius: 5px;
+  }
+  body::-webkit-scrollbar-track,
+  body *::-webkit-scrollbar-track {
+    background-color: rgba(163, 172, 182, 0.2);
+    border-radius: 5px;
+  }
+  body::-webkit-scrollbar-corner,
+  body *::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  .kit-scrollbar-small::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .kit-scrollbar-autohide {
+    -webkit-background-clip: text;
+    background-color: transparent;
+    border-color: transparent;
+    transition: all 0.3s ease-out;
+  }
+  .kit-scrollbar-autohide::-webkit-scrollbar-thumb {
+    border: 4px solid;
+    border-color: inherit;
+    background-color: transparent;
+  }
+  .kit-scrollbar-autohide::-webkit-scrollbar-track {
+    background-color: inherit;
+  }
+  .kit-scrollbar-autohide:hover {
+    background-color: rgba(163, 172, 182, 0.2);
+    border-color: rgba(163, 172, 182, 0.5);
+  }
+  .kit-scrollbar-small-autohide {
+    -webkit-background-clip: text;
+    background-color: transparent;
+    border-color: transparent;
+    transition: all 0.3s ease-out;
+  }
+  .kit-scrollbar-small-autohide::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .kit-scrollbar-small-autohide::-webkit-scrollbar-thumb {
+    border: 4px solid;
+    border-color: inherit;
+    background-color: transparent;
+  }
+  .kit-scrollbar-small-autohide::-webkit-scrollbar-track {
+    background-color: inherit;
+  }
+  .kit-scrollbar-small-autohide:hover {
+    background-color: rgba(163, 172, 182, 0.2);
+    border-color: rgba(163, 172, 182, 0.5);
+  }
+  .kit-scrollbar-small-autohide::-webkit-scrollbar-thumb {
+    border: 2px solid;
+    border-color: inherit;
+  }
+}
+.ws-theme-Dark body {
+  background-color: #1d364c;
+  background-color: var(--theme-background-color, #1d364c);
+}
+.ws-theme-Light body {
+  background-color: #fafafa;
+  background-color: var(--theme-background-color, #fafafa);
+}
+.ws-theme-Light .wrike-loader-logo-text {
+  fill: #647883;
+}
+html.theme-halloween body {
+  background-image: url(https://cdn.wrike.com/static/workspace/themes/theme-background-halloween.png) !important;
+}
+html.theme-halloween .ws-sidebar::before {
+  content: "";
+  width: 120%;
+  position: absolute;
+  top: -56px;
+  bottom: -24px;
+  left: 0;
+  background-image: linear-gradient(to right, rgba(32, 18, 35, 0.6), rgba(32, 18, 35, 0));
+  pointer-events: none;
+  z-index: -1;
+}
+html.theme-winter-holiday body {
+  background-image: url(https://cdn.wrike.com/static/workspace/themes/theme-background-winter-18.png) !important;
+}
+html.theme-winter-holiday .ws-content::before {
+  content: "";
+  height: 192px;
+  position: absolute;
+  top: -56px;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(30, 88, 189, 0.9), rgba(30, 88, 189, 0));
+  pointer-events: none;
+  z-index: -1;
+}
+html.theme-winter-holiday .ws-sidebar::before {
+  content: "";
+  width: 120%;
+  position: absolute;
+  top: -56px;
+  bottom: -24px;
+  left: 0;
+  background-image: linear-gradient(to right, rgba(30, 88, 189, 0.9), rgba(30, 88, 189, 0));
+  pointer-events: none;
+  z-index: -1;
+}
+html.theme-spring body.wrike-loading-complete:not(.wrike-task-view-full-screen) {
+  background-image: url("//cdn.wrike.com/static/workspace/themes/march-8th-19/theme-background-march-8th-19.png") !important;
+}
+html.theme-spring body.wrike-loading-complete:not(.wrike-task-view-full-screen)::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100vh;
+  background-image: linear-gradient(to left, rgba(18, 35, 19, 0.18), rgba(18, 35, 19, 0.6));
+  pointer-events: none;
+  z-index: -1;
+}
+html.theme-spring .theme-preview-theme-spring {
+  background-image: url("//cdn.wrike.com/static/workspace/themes/march-8th-19/theme-background-march-8th-19.png") !important;
+}
+html.theme-spring .folder-tree-skeleton .skeleton-element {
+  background-color: rgba(255, 255, 255, 0.24);
+}
+.app-loader--customer.sun-life-loader {
+  flex-direction: column;
+}
+.app-loader--customer.sun-life-loader .sun-life-loader__load-bar {
+  width: 200px;
+  height: 3px;
+  position: relative;
+  margin-top: 20px;
+  border-radius: 2px;
+  background-color: currentColor;
+  overflow: hidden;
+}
+.app-loader--customer.sun-life-loader .sun-life-loader__load-bar::after {
+  content: "";
+  width: 200px;
+  height: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 2px;
+  background-color: #dfa52e;
+  animation: 1.7s infinite sun-life-loader-loop cubic-bezier(0.42, 0, 0.58, 1);
+}
+.app-loader--customer.sun-life-loader .sun-life-loader__branding-text {
+  margin-top: 12px;
+  -webkit-font-smoothing: antialiased;
+  font: 400 14px/1.57142857 "Open sans", "lucida grande", "Segoe UI", arial, verdana, tahoma, "Hiragino Kaku Gothic ProN", "Osaka", "Meiryo UI", "Yu Gothic UI", sans-serif;
+  color: currentColor;
+}
+.wrike-loading-complete .app-loader--customer.sun-life-loader {
+  display: none !important;
+}
+@keyframes sun-life-loader-loop {
+  0% {
+    transform: translateX(-200px);
+  }
+  25% {
+    transform: translateX(-150px);
+  }
+  70% {
+    transform: translateX(150px);
+  }
+  100% {
+    transform: translateX(200px);
+  }
+}
+.theme-sun-life-dark .app-loader:not(.sun-life-loader) {
+  display: none !important;
+}
+.theme-sun-life-dark body:not(.wrike-loading-complete) .app-loader--customer.sun-life-loader {
+  display: flex !important;
+}
+.theme-sun-life-dark .sun-life-loader .sun-life-loader__logo {
+  color: rgba(255, 255, 255, 0.9);
+}
+.theme-sun-life-dark .sun-life-loader .sun-life-loader__load-bar {
+  color: rgba(255, 255, 255, 0.08);
+}
+.theme-sun-life-dark .sun-life-loader .sun-life-loader__branding-text {
+  color: rgba(255, 255, 255, 0.64);
+}
+.theme-sun-life-light .app-loader:not(.sun-life-loader) {
+  display: none;
+}
+.theme-sun-life-light body:not(.wrike-loading-complete) .app-loader--customer.sun-life-loader {
+  display: flex !important;
+}
+.theme-sun-life-light .sun-life-loader .sun-life-loader__logo {
+  color: rgba(0, 0, 0, 0.9);
+}
+.theme-sun-life-light .sun-life-loader .sun-life-loader__load-bar {
+  color: rgba(0, 0, 0, 0.08);
+}
+.theme-sun-life-light .sun-life-loader .sun-life-loader__branding-text {
+  color: rgba(0, 0, 0, 0.56);
+}
+html.m8-theme body {
+  background-image: url("//cdn.wrike.com/static/workspace/themes/theme-background-march-8th-16.png") !important;
+}
+html.m8-theme body .custom-theme-justifier {
+  opacity: 0.3;
+}
+html.m8-theme body .folder-tree-skeleton .skeleton-element {
+  background-color: rgba(255, 255, 255, 0.24);
+}
+html.m8-17-theme body {
+  background: #372152 url("//cdn.wrike.com/static/workspace/themes/theme-background-march-8th-17.png") !important;
+  background-size: 14%;
+}
+html.m8-17-theme body .custom-theme-justifier {
+  opacity: 0!important;
+}
+html.m8-17-theme body .highcharts-background {
+  fill: transparent;
+}
+html.m8-18-theme body {
+  background-image: url("//cdn.wrike.com/static/workspace/themes/theme-background-march-8th-18.png") !important;
+  background-size: 250px;
+}
+html.m8-18-theme .folder-tree-skeleton .skeleton-element {
+  background-color: rgba(255, 255, 255, 0.32);
+}
+html.support-500k-theme body {
+  background-image: url("//cdn.wrike.com/static/workspace/themes/theme-background-500k-support_tickets.png") !important;
+  background-size: 23%;
+}
+html.support-500k-theme body .folder-tree-skeleton .skeleton-element {
+  background-color: rgba(255, 255, 255, 0.32);
+}
+html.zebra-theme body {
+  background-image: url("//cdn.wrike.com/static/workspace/themes/theme-background-pink-zebra.png") !important;
+}
+html.zebra-theme .custom-theme-justifier {
+  opacity: 0.5;
+}
+html.zebra-theme .folder-tree-skeleton .skeleton-element {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+html.dark-leopard-theme body {
+  background-image: url("//cdn.wrike.com/static/workspace/themes/theme-background-dark-leopard.png") !important;
+}
+html.dark-leopard-theme .custom-theme-justifier {
+  opacity: 0.3;
+}
+html.dark-leopard-theme .folder-tree-skeleton .skeleton-element {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+html {
+  overflow: hidden;
+}
+body {
+  background-color: #1d364c;
+  background-image: var(--theme-background-image, none);
+  transition: background-color 0.1s ease-out;
+}
+.wrike-loading-complete {
+  animation: wrike-animation-fadein ease-in 0.5s;
+}
+.wrike-loading-complete .app-loader {
+  display: none;
+}
+@keyframes wrike-animation-fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.custom-theme-justifier {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0;
+  z-index: -1;
+}
+.app-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.app-loader .loader-container svg + svg {
+  margin-left: 16px;
+}
+.app-loader .spinner {
+  -webkit-animation: app-loader-rotator 1.8s linear infinite;
+  animation: app-loader-rotator 1.8s linear infinite;
+  transform-origin: center;
+}
+.app-loader .spinner .path {
+  transform-origin: center;
+  stroke: #4488ff;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  -webkit-animation: app-loader-dash 1.8s ease-in-out infinite;
+  animation: app-loader-dash 1.8s ease-in-out infinite;
+}
+.app-loader .spinner .path_bg {
+  stroke: rgba(0, 0, 0, 0.1);
+}
+_:-ms-fullscreen,
+:root {
+  /*
+     hack for targeting ie11
+     link: http://browserhacks.com/#hack-d19e53a0fdfba5ec0f283ae86175a3af
+     the whole style block will be ignored in other browsers because of the browser specific pseudoclass
+  */
+}
+_:-ms-fullscreen .app-loader .loader-icon,
+:root .app-loader .loader-icon {
+  animation: app-loader-rotator 1.8s linear infinite;
+}
+_:-ms-fullscreen .app-loader .spinner,
+:root .app-loader .spinner {
+  animation: none;
+}
+_:-ms-fullscreen .app-loader .spinner .path,
+:root .app-loader .spinner .path {
+  animation: none;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 20;
+}
+@supports (-ms-ime-align: auto) {
+  /*
+     hack for targeting edge
+     link: https://browserstrangeness.github.io/css_hacks.html#edge
+     the whole style block will be ignored in other browsers because of the browser specific pseudoclass
+  */
+  .app-loader .loader-icon {
+    animation: app-loader-rotator 1.8s linear infinite;
+  }
+  .app-loader .spinner {
+    animation: none;
+  }
+  .app-loader .spinner .path {
+    animation: none;
+    stroke-dasharray: 60;
+    stroke-dashoffset: 20;
+  }
+}
+@-webkit-keyframes app-loader-rotator {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+@keyframes app-loader-rotator {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+@-webkit-keyframes app-loader-dash {
+  0% {
+    stroke-dashoffset: 100;
+    transform: rotate(-450deg);
+  }
+  50% {
+    stroke-dashoffset: 50;
+    transform: rotate(-360deg);
+  }
+  100% {
+    stroke-dashoffset: 100;
+    transform: rotate(0deg);
+  }
+}
+@keyframes app-loader-dash {
+  0% {
+    stroke-dashoffset: 100;
+    transform: rotate(-450deg);
+  }
+  50% {
+    stroke-dashoffset: 50;
+    transform: rotate(-360deg);
+  }
+  100% {
+    stroke-dashoffset: 100;
+    transform: rotate(0deg);
+  }
+}
