@@ -20,7 +20,8 @@
 
             this.onClickDependencies = this.onClickDependencies.bind(this);
             this.dependencies = new Dependencies($('#dependecies'));
-            this.$panels.filter(':gt(0)').find('.has-deps').on('click', this.onClickDependencies);
+            // only for Technical Requirements
+            this.$panels.filter(':eq(1)').find('.has-deps').on('click', this.onClickDependencies);
         }
         edit(task) {
             this.close();
