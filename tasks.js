@@ -17,6 +17,10 @@
             this.onChangeStatus = this.onChangeStatus.bind(this);
             this.statusSelector = new StatusSelector($('.status-selector'));
             this.statusSelector.onChange(this.onChangeStatus);
+
+            this.onClickDependencies = this.onClickDependencies.bind(this);
+            this.dependencies = new Dependencies($('#dependecies'));
+            this.$panels.filter(':gt(0)').find('.has-deps').on('click', this.onClickDependencies);
         }
         edit(task) {
             this.close();
@@ -39,6 +43,7 @@
             this.$panels.hide();
             this.$panels.first().show();
             this.statusSelector.hide();
+            this.dependencies.hide();
         }
         setStatus(value) {
             this.$editingPanel.find('.status-picker-status>span:first').html(value);
@@ -78,6 +83,11 @@
             this.statusSelector.setStatus(this.editingTask.getStatus());
             this.statusSelector.moveAbove(event.currentTarget);
         }
+        onClickDependencies(event) {
+            event.stopPropagation();
+            this.dependencies.show();
+            this.dependencies.moveAbove(event.currentTarget);
+        }
     }
 
     class Task {
@@ -101,7 +111,11 @@
             if (this.getStatus() === value) {
                 return;
             }
-            this.$el.find('.task-status').text(value);
+            const $status = this.$el.find('.task-status');
+            $status.text(value);
+            if (value === COMPLETED_STATUS) {
+                $status.css('color', 'rgb(104, 159, 56)');
+            }
             this.$el.trigger('change', {status: value});
         }
         onClick(callback) {
@@ -119,7 +133,7 @@
             this.onclickTask = this.onclickTask.bind(this);
             this.onchangedTask = this.onchangedTask.bind(this);
 
-            this.initTasks(this.$el.find('.task-block'));
+            this.initTasks(this.$el.find('.task-block:gt(2)'));
             this.initTasksEditor($('.wspace-mainview-container-right'));
         }
         initTasksEditor($container) {
@@ -148,6 +162,16 @@
             if (changedFields.status === COMPLETED_STATUS) {
                 const dependentTasks = this.findDependentTasks(task);
                 dependentTasks.forEach(t => t.setStatus(INITIAL_STATUS));
+
+                const $completedGroup = $('*[data-id="Completed"] wrike-task-list-task:first').parent();
+                const $task = task.$el.closest('.task-list-preset-compact');
+                const $taskGroup = $task.parent();
+                $completedGroup.append($task);
+                $task.children(':first').addClass('is-last-in-group');
+                $task.prev().children(':first').removeClass('is-last-in-group');
+                if ($taskGroup.children().length === 0) {
+                    $taskGroup.closest('.task-list-preset-compact').hide();
+                }
             }
         }
         findDependentTasks(task) {
@@ -203,6 +227,37 @@
             this.setStatus(value);
             this.$el.trigger('change', {status: value});
             this.hide();
+        }
+    }
+
+    class Dependencies {
+        constructor(container) {
+            this.$el = $(container);
+
+            // isOuterClick
+            $(window).click(event => {
+                this.hide();
+            });
+            this.$el.click(event => {
+                event.stopPropagation();
+            });
+        }
+        moveAbove(el) {
+            return;
+            const $el = $(el);
+            const top = parseInt($el.offset().top + $el.height());
+            const left = parseInt($el.offset().left);
+
+            this.$el.css({left: left, top: top});
+        }
+        show() {
+            this.$el.show();
+        }
+        hide() {
+            this.$el.hide();
+        }
+        isVisible() {
+            return this.$el.is(':visible');
         }
     }
 
