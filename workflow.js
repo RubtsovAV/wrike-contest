@@ -29,8 +29,16 @@
         edit(status) {
             this.editingStatus = status;
             this.setName(status.getName());
+            this.showIsInitial(status.hasIsInitial());
             this.setIsInitial(status.getIsInitial());
+
             this.$el.show();
+            const $status = status.$el;
+            const top = parseInt($status.offset().top + $status.height() / 2);
+            const left = parseInt($status.offset().left + $status.width() + 25);
+
+            this.$el.find('>.tooltip-container').css('transform', 'translate(' + left + 'px, 150px)');
+            this.$el.find('>.tooltip-tail').css('transform', 'translate(' + (left - 12) + 'px, ' + (top) + 'px) rotate(90deg)');
         }
         close() {
             this.editingStatus = null;
@@ -41,6 +49,9 @@
         }
         setName(name) {
             this.$name.val(name);
+        }
+        showIsInitial(flag = true) {
+            this.$el.find('.my-is-initial-switcher').toggle(flag);
         }
         setIsInitial(isInitial) {
             this.$isInitial.prop('checked', isInitial);
@@ -55,15 +66,19 @@
     }
 
     class Status {
-        constructor(container) {
+        constructor(container, params = {}) {
             this.$el = $(container);
             this.isInitial = false;
+            this._hasIsInitial = !!params.hasInitial;
         }
         getName() {
             return this.$el.find('.wf-designer-scheme-status-card__title-text').text();
         }
         getIsInitial() {
             return this.isInitial;
+        }
+        hasIsInitial() {
+            return this._hasIsInitial;
         }
         setIsInitial(value) {
             this.isInitial = value;
@@ -89,15 +104,22 @@
             this.onclickStatus = this.onclickStatus.bind(this);
             this.onchangedStatus = this.onchangedStatus.bind(this);
 
-            this.initStatuses($('.wf-designer-scheme-status-group-list__group:first .wf-designer-scheme-status-card'));
+            this.initStatuses(
+                $('.wf-designer-scheme-status-group-list__group:first .wf-designer-scheme-status-card'),
+                {hasInitial: true}
+            );
+            this.initStatuses(
+                $('.wf-designer-scheme-status-group-list__group:eq(1) .wf-designer-scheme-status-card'),
+                {hasInitial: false}
+            );
             this.initStatusEditor($('.wf-designer-scheme-status-editor__tooltip'));
         }
         initStatusEditor($container) {
             this.statusEditor = new StatusEditor($container);
         }
-        initStatuses($statuses) {
+        initStatuses($statuses, params = {}) {
             this.statuses = jQuery.map($statuses, container => {
-                const status = new Status(container);
+                const status = new Status(container, params);
                 status.onClick(event => {
                     this.onclickStatus(status);
                 });
