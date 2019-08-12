@@ -104,6 +104,8 @@
             this.onclickStatus = this.onclickStatus.bind(this);
             this.onchangedStatus = this.onchangedStatus.bind(this);
 
+            this.statuses = [];
+
             this.initStatuses(
                 $('.wf-designer-scheme-status-group-list__group:first .wf-designer-scheme-status-card'),
                 {hasInitial: true}
@@ -118,7 +120,7 @@
             this.statusEditor = new StatusEditor($container);
         }
         initStatuses($statuses, params = {}) {
-            this.statuses = jQuery.map($statuses, container => {
+            this.statuses = this.statuses.concat(jQuery.map($statuses, container => {
                 const status = new Status(container, params);
                 status.onClick(event => {
                     this.onclickStatus(status);
@@ -127,7 +129,7 @@
                     this.onchangedStatus(status, changedFields);
                 });
                 return status;
-            });
+            }));
         }
         onclickStatus(status) {
             if (this.statusEditor.isEditing(status)) {
